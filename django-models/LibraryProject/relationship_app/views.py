@@ -7,8 +7,9 @@ from .models import Book
 from django.contrib.auth.decorators import user_passes_test
 from .models import UserProfile
 from .forms import BookForm
+from django.contrib.auth.decorators import permission_required
 
-@permission_required('relationship_app.can_add_book')
+@permission_required('relationship_app.can_add_book', raise_exception=True)
 def add_book(request):
     if request.method == 'POST':
         form = BookForm(request.POST)
@@ -19,7 +20,7 @@ def add_book(request):
         form = BookForm()
     return render(request, 'relationship_app/book_form.html', {'form': form})
 
-@permission_required('relationship_app.can_change_book')
+@permission_required('relationship_app.can_change_book', raise_exception=True)
 def edit_book(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
     if request.method == 'POST':
@@ -31,7 +32,7 @@ def edit_book(request, book_id):
         form = BookForm(instance=book)
     return render(request, 'relationship_app/book_form.html', {'form': form})
 
-@permission_required('relationship_app.can_delete_book')
+@permission_required('relationship_app.can_delete_book', raise_exception=True)
 def delete_book(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
     if request.method == 'POST':
