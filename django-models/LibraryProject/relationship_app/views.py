@@ -12,14 +12,15 @@ class LibraryDetailView(DetailView):
 
 # Register
 def register_view(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect("login")
+            user = form.save()
+            login(request, user)
+            return redirect('list_books')  # or wherever you want to send them
     else:
         form = UserCreationForm()
-    return render(request, "relationship_app/register.html", {"form": form})
+    return render(request, 'relationship_app/register.html', {'form': form})
 
 # Login
 def login_view(request):
