@@ -1,4 +1,3 @@
-from django.views.generic import DetailView
 from .models import Library
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
@@ -8,6 +7,8 @@ from django.contrib.auth.decorators import user_passes_test
 from .models import UserProfile
 from .forms import BookForm
 from django.contrib.auth.decorators import permission_required
+from django.views.generic.detail import DetailView
+
 
 
 @permission_required('relationship_app.can_add_book', raise_exception=True)
