@@ -9,6 +9,7 @@ from .models import UserProfile
 from .forms import BookForm
 from django.contrib.auth.decorators import permission_required
 
+
 @permission_required('relationship_app.can_add_book', raise_exception=True)
 def add_book(request):
     if request.method == 'POST':
