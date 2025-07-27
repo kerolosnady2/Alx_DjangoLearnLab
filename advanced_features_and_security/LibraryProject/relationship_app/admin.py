@@ -2,10 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-<<<<<<< HEAD
-from django.contrib import admin
-=======
->>>>>>> 9c689e466daa251d1187c8261f25f6eca3078557
+
 from django.contrib.auth.admin import UserAdmin
 from .models import CustomUser
 

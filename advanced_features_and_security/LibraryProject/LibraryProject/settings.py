@@ -124,10 +124,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-<<<<<<< HEAD
 
 AUTH_USER_MODEL = 'relationship_app.CustomUser'
-=======
-# AUTH_USER_MODEL = 'relationship_app.CustomUser'
-AUTH_USER_MODEL = 'bookshelf.CustomUser'
->>>>>>> 9c689e466daa251d1187c8261f25f6eca3078557
+

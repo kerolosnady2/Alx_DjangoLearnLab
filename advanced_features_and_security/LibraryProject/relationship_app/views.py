@@ -8,7 +8,6 @@ from .models import UserProfile
 from .forms import BookForm
 from django.contrib.auth.decorators import permission_required
 from django.views.generic.detail import DetailView
-<<<<<<< HEAD
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import permission_required
 from .models import Article
@@ -38,9 +37,6 @@ def article_delete(request, article_id):
     article = get_object_or_404(Article, id=article_id)
     article.delete()
     return redirect('article_list')
-=======
-
->>>>>>> 9c689e466daa251d1187c8261f25f6eca3078557
 
 
 @permission_required('relationship_app.can_add_book', raise_exception=True)

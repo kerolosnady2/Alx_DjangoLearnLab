@@ -4,7 +4,6 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 
-<<<<<<< HEAD
 class Article(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
@@ -21,9 +20,6 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
-
-=======
->>>>>>> 9c689e466daa251d1187c8261f25f6eca3078557
 class CustomUserManager(BaseUserManager):
     def create_user(self, username, email, date_of_birth, password=None, **extra_fields):
         if not email:
@@ -45,13 +41,7 @@ class CustomUserManager(BaseUserManager):
 
 class CustomUser(AbstractUser):
     date_of_birth = models.DateField(null=True, blank=True)
-<<<<<<< HEAD
     profile_photo = models.URLField(null=True, blank=True)  # Replaces ImageField
-
-=======
-    profile_photo = models.ImageField(upload_to='profile_photos/', null=True, blank=True)
->>>>>>> 9c689e466daa251d1187c8261f25f6eca3078557
-
     objects = CustomUserManager()
 
     def __str__(self):
